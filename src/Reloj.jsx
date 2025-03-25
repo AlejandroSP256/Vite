@@ -14,12 +14,12 @@ export function Reloj() {
         return () => clearInterval(intervalo);
     }, []);
 
-    const diasSemana = ['Dom', 'Lun', 'Mar', 'Mie', 'Jue', 'Vie', 'Sab'];
+    const diasSemana = ['Sun', 'Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat'];
     const diaActivo = hora.getDay();
 
     return (
         <div className='flex rounded-4xl select-none pr-8 pl-8 border-8 border-solid border-[#2d2d2d] w-fit'>
-            <div className='flex flex-col justify-center items-center text-[#2d2d2d] w-12 pr-6 text-[1.8rem] font-bold'>
+            <div className='flex flex-col justify-center items-center text-[#2d2d2d] w-12 pr-6 text-3xl font-bold'>
                 {diasSemana.map((dia, index) => (
                     <span key={dia} className={index === diaActivo ? 'text-white' : ''}>
                         {dia}
@@ -27,7 +27,7 @@ export function Reloj() {
                 ))}
             </div>
 
-            <div className='inline-block text-[13rem] pl-6'>
+            <div className='inline-block text-[13rem] pl-20'>
                 <span>{String(hora.getHours()).padStart(2, '0')}</span>
                 <span className={showDot ? 'invisible' : ''}>:</span>
                 <span>{String(hora.getMinutes()).padStart(2, '0')}</span>
